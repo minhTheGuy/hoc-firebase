@@ -5,7 +5,10 @@ import {
     getDocs,
     addDoc,
     deleteDoc,
-    doc
+    doc,
+    onSnapshot,
+    query,
+    where
 } from 'firebase/firestore'
 
 const firebaseConfig = {
@@ -26,7 +29,7 @@ const db = getFirestore()
 
 // collection ref
 const colRef = collection(db, 'books');
-
+const q = query(colRef, where('author', '==', 'minh'))
 // get collection data
 getDocs(colRef)
     .then((snapshot) => {
@@ -41,7 +44,30 @@ getDocs(colRef)
     })
 
 // adding documents
+// const addBookForm = document.querySelector('.add')
+// addBookForm.addEventListener('submit', e => {
+//     e.preventDefault()
+//     addDoc(colRef, {
+//         title: addBookForm.title.value,
+//         value: addBookForm.author.value,
+//     })
+//     .then(() => {
+//         addBookForm.reset()
+//     })
+
+// })
+
+// real-time listener
 const addBookForm = document.querySelector('.add')
+
+onSnapshot(colRef, (snapshot) => {
+    let books = []
+    snapshot.docs.forEach((doc) => {
+        books.push({...doc.data(), id: doc.id})
+    })
+    console.log(books)
+})
+
 addBookForm.addEventListener('submit', e => {
     e.preventDefault()
     addDoc(colRef, {
@@ -53,6 +79,7 @@ addBookForm.addEventListener('submit', e => {
     })
 
 })
+
 
 // deleting documents
 const deleteBookForm = document.querySelector('.delete')

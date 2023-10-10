@@ -4,27 +4,97 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Firebase 9</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      .container {
+        width: 800px;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+        padding: 20px;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .add {
+        margin-bottom: 15px;
+      }
+      .delete {
+        margin-bottom: 15px;
+      }
+
+      label {
+        display: block;
+        font-weight: bold;
+        margin: 5px;
+      }
+
+      input {
+        width: 45%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        margin: 5px;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #66aaff;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1),
+          0 0 5px rgba(102, 170, 255, 0.5);
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #66aaff;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #007bff;
+      }
+      #topic {
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
     <h1>Getting Started with Firebase 9</h1>
 
-    <h2>Firebase Firestore</h2>
+    <h2 id="topic">Firebase Firestore</h2>
 
-    <form class="add">
-      <label for="title">Title:</label>
-      <input type="text" name="title" required />
-      <label for="author">Author:</label>
-      <input type="text" name="author" required />
+    <div class="container">
+      <h1>Add Book</h1>
+      <form class="add">
+        <label for="title">Title:</label>
+        <input type="text" name="title" required />
+        <label for="author">Author:</label>
+        <input type="text" name="author" required />
 
-      <button>add a new book</button>
-    </form>
+        <button>Add a new book</button>
+      </form>
+    </div>
 
-    <form class="delete">
-      <label for="id">Document id:</label>
-      <input type="text" name="id" required />
+    <div class="container">
+      <form class="delete">
+        <h1>Delete Book</h1>
+        <label for="id">Document id:</label>
+        <input type="text" name="id" required />
 
-      <button>delete a book</button>
-    </form>
+        <button>Delete a book</button>
+      </form>
+    </div>
     <script src="bundle.js"></script>
   </body>
 </html>
