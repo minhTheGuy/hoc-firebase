@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  
+    .container {
+      width: 300px;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+  
+    .form-group {
+      margin-bottom: 10px;
+    }
+  
+    .form-group label {
+      display: block;
+      font-weight: bold;
+    }
+  
+    .form-group input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+    }
+  
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Login Authentication</h1>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="email" id="email" name="username" placeholder="Enter your username">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="pass" name="password" placeholder="Enter your password">
+      </div>
+      <button id="login" class="btn">Login</button>
+
+  </div>
+  <script  type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
+      import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCSZp8KByro04VF_9civSEUMcka98RnRYA",
+        authDomain: "minh-1a362.firebaseapp.com",
+        projectId: "minh-1a362",
+        storageBucket: "minh-1a362.appspot.com",
+        messagingSenderId: "875221958149",
+        appId: "1:875221958149:web:d2d7131e94ca2fadd4266c"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const auth = getAuth(app);
+
+      document.getElementById("login").addEventListener('click', LoginwithEmail)
+      function LoginwithEmail(){
+        const email = document.getElementById("email").value;
+        const pass = document.getElementById("pass").value;
+        console.log(email, pass);
+        signInWithEmailAndPassword(auth, email, pass)
+        .then((userCredential) => {
+          // Signed in 
+          const user = userCredential.user;
+          console.log(user)
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage)
+          alert(errorMessage)
+        });
+      }
+
+  </script>
+</body>
+</html>
