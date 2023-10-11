@@ -15,6 +15,8 @@
         border: 1px solid #ccc;
         padding: 20px;
         background-color: white;
+        border-radius: 5px;
+        text-shadow: #333;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
       h1 {
@@ -27,7 +29,9 @@
       .delete {
         margin-bottom: 15px;
       }
-
+      .update {
+        margin-bottom: 15px;
+      }
       label {
         display: block;
         font-weight: bold;
@@ -54,6 +58,7 @@
         display: block;
         width: 100%;
         padding: 15px;
+        margin: 15px;
         border: none;
         border-radius: 5px;
         background-color: #66aaff;
@@ -91,9 +96,43 @@
         <h1>Delete Book</h1>
         <label for="id">Document id:</label>
         <input type="text" name="id" required />
-
         <button>Delete a book</button>
       </form>
+    </div>
+    <div class="container">
+      <h1>Update book</h1>
+      <form class="update">
+        <label for="id">Document id:</label>
+        <input type="text" name="id" />
+        <button>Update a book</button>
+      </form>
+    </div>
+    <div class="container">
+      <h1>Firebase Authentication</h1>
+      <form class="signup">
+        <label for="email">email:</label>
+        <input type="email" name="email" />
+        <label for="password">password</label>
+        <input type="password" name="password" />
+        <button>Sign up</button>
+      </form>
+    </div>
+    <div class="container">
+      <h1>Firebase Test Login</h1>
+      <form class="login">
+        <label for="email">email:</label>
+        <input type="email" name="email" />
+        <label for="password">password</label>
+        <input type="password" name="password" />
+        <button>login</button>
+      </form>
+      <div class="logout">
+        <button>logout</button>
+      </div>
+    </div>
+    <div class="container">
+      <h1>Unsubcribing</h1>
+      <button class="unsub">unsubcribe from db/auth changes</button>
     </div>
     <script src="bundle.js"></script>
   </body>
