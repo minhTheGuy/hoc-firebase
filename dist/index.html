@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firebase 9</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+      .container {
+        width: 800px;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+        padding: 20px;
+        background-color: white;
+        border-radius: 5px;
+        text-shadow: #333;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+      .add {
+        margin-bottom: 15px;
+      }
+      .delete {
+        margin-bottom: 15px;
+      }
+      .update {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        font-weight: bold;
+        margin: 5px;
+      }
+
+      input {
+        width: 45%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        margin: 5px;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #66aaff;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1),
+          0 0 5px rgba(102, 170, 255, 0.5);
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 15px;
+        margin: 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #66aaff;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #007bff;
+      }
+      #topic {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Getting Started with Firebase 9</h1>
+
+    <h2 id="topic">Firebase Firestore</h2>
+
+    <div class="container">
+      <h1>Add Book</h1>
+      <form class="add">
+        <label for="title">Title:</label>
+        <input type="text" name="title" required />
+        <label for="author">Author:</label>
+        <input type="text" name="author" required />
+
+        <button>Add a new book</button>
+      </form>
+    </div>
+
+    <div class="container">
+      <form class="delete">
+        <h1>Delete Book</h1>
+        <label for="id">Document id:</label>
+        <input type="text" name="id" required />
+        <button>Delete a book</button>
+      </form>
+    </div>
+    <div class="container">
+      <h1>Update book</h1>
+      <form class="update">
+        <label for="id">Document id:</label>
+        <input type="text" name="id" />
+        <button>Update a book</button>
+      </form>
+    </div>
+    <div class="container">
+      <h1>Firebase Authentication</h1>
+      <form class="signup">
+        <label for="email">email:</label>
+        <input type="email" name="email" />
+        <label for="password">password</label>
+        <input type="password" name="password" />
+        <button>Sign up</button>
+      </form>
+    </div>
+    <div class="container">
+      <h1>Firebase Test Login</h1>
+      <form class="login">
+        <label for="email">email:</label>
+        <input type="email" name="email" />
+        <label for="password">password</label>
+        <input type="password" name="password" />
+        <button>login</button>
+      </form>
+      <div class="logout">
+        <button>logout</button>
+      </div>
+    </div>
+    <div class="container">
+      <h1>Unsubcribing</h1>
+      <button class="unsub">unsubcribe from db/auth changes</button>
+    </div>
+    <script src="bundle.js"></script>
+  </body>
+</html>
